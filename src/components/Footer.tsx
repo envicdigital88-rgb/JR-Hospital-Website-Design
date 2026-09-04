@@ -91,9 +91,20 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/15">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2.5 px-6 py-5 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {site.registeredName}. All rights reserved.
+          </p>
+          <p>
+            Developed by{' '}
+            <a
+              href="https://www.envicdigital.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-white/85 underline decoration-white/30 underline-offset-2 transition-colors hover:text-white hover:decoration-white"
+            >
+              Envic Digital
+            </a>
           </p>
           <p>{site.publicNameFull} · Negombo Road, Ja-Ela 11350</p>
         </div>

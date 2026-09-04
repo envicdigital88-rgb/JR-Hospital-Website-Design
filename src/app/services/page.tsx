@@ -104,9 +104,7 @@ export default function Services() {
             </p>
           </AnimateIn>
 
-          <AnimateIn variant="fade-up" delay={150}>
-            <ServiceAnnouncements />
-          </AnimateIn>
+          <ServiceAnnouncements />
         </div>
       </section>
 

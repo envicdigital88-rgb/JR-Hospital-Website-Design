@@ -41,11 +41,16 @@ export function AnimateIn({
         }
 
         if (entry.isIntersecting) {
-          // Scrolled INTO view — animate in after delay
-          timerRef.current = setTimeout(() => {
+          // Scrolled INTO view — animate in immediately or after explicit delay
+          if (delay > 0) {
+            timerRef.current = setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translate(0, 0)';
+            }, delay);
+          } else {
             el.style.opacity = '1';
             el.style.transform = 'translate(0, 0)';
-          }, delay);
+          }
         } else {
           // Scrolled OUT of view — instantly reset to hidden (no transition so it's instant)
           el.style.transition = 'none';
@@ -61,8 +66,8 @@ export function AnimateIn({
         }
       },
       {
-        threshold: 0.12,
-        rootMargin: '0px 0px -60px 0px',
+        threshold: 0.02,
+        rootMargin: '0px 0px 80px 0px',
       }
     );
 
