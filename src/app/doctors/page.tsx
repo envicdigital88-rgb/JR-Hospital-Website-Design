@@ -64,7 +64,8 @@ export default function Doctors({ showPendingDoctors }: DoctorsProps) {
       <PageHeader
         eyebrow="Doctors"
         title="The medical team at JR Hospital"
-        description="Medical officers practising at the hospital. For consultation days and session times, please call the hospital — schedules vary by clinic." />
+        description="Medical officers practising at the hospital. For consultation days and session times, please call the hospital — schedules vary by clinic."
+        imageUrl="/Medical Team Photography.jpg" />
       
 
       <section className="bg-white">

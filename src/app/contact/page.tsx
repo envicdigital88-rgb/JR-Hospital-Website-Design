@@ -11,7 +11,8 @@ export default function Contact() {
       <PageHeader
         eyebrow="Contact"
         title="Talk to us at any hour"
-        description={`${site.publicNameFull}, ${site.address.full}. The hospital is open 24 hours — call for emergencies, appointments or clinic times.`} />
+        description={`${site.publicNameFull}, ${site.address.full}. The hospital is open 24 hours — call for emergencies, appointments or clinic times.`}
+        imageUrl="/Shared Antenatal Care for Expecting Mothers Is What’s Needed.jpg" />
       
 
       <section className="bg-white">

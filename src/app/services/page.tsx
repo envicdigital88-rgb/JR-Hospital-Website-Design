@@ -14,7 +14,8 @@ export default function Services() {
       <PageHeader
         eyebrow="Facilities & Services"
         title="23 facilities and services, grouped by what you came for"
-        description="From walk-in outpatient care and emergency treatment to diagnostics, specialist clinics, therapy and home nursing — all available at Negombo Road, Ja-Ela." />
+        description="From walk-in outpatient care and emergency treatment to diagnostics, specialist clinics, therapy and home nursing — all available at Negombo Road, Ja-Ela."
+        imageUrl="/affordable and budget friendly hospital in Trivandrum.jpg" />
       
 
       <section className="bg-white">
