@@ -1,6 +1,6 @@
 import React from "react";
-import { ActivityIcon, CarIcon, ClockIcon, EyeIcon, FlaskConicalIcon, HeartHandshakeIcon, PillIcon, ScanLineIcon, SirenIcon, StethoscopeIcon, SyringeIcon, WavesIcon, BoxIcon } from "lucide-react";
-const registry: Record<string, BoxIcon> = {
+import { ActivityIcon, CarIcon, ClockIcon, EyeIcon, FlaskConicalIcon, HeartHandshakeIcon, PillIcon, ScanLineIcon, SirenIcon, StethoscopeIcon, SyringeIcon, WavesIcon, type LucideIcon } from "lucide-react";
+const registry: Record<string, LucideIcon> = {
   activity: ActivityIcon,
   car: CarIcon,
   clock: ClockIcon,

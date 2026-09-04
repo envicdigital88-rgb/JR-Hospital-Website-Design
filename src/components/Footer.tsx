@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ClockIcon, MailIcon, MapPinIcon, PhoneIcon } from 'lucide-react';
-import { directionsUrl, mailtoHref, site, telHref } from '../data/site';
+import { directionsUrl, mailtoHref, site, telHref } from '@/data/site';
 
 export function Footer() {
   return (
@@ -29,7 +29,7 @@ export function Footer() {
             { label: 'Contact', to: '/contact' }].
             map((item) =>
             <li key={item.to}>
-                <Link className="transition-colors duration-150 hover:text-white" to={item.to}>
+                <Link className="transition-colors duration-150 hover:text-white" href={item.to}>
                   {item.label}
                 </Link>
               </li>

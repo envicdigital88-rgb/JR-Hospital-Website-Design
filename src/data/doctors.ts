@@ -1,4 +1,4 @@
-import type { Doctor } from '../types/content';
+import type { Doctor } from '@/types/content';
 
 // Doctors supplied and confirmed by the hospital. Add new entries here —
 // the doctors page renders whatever is in these arrays.

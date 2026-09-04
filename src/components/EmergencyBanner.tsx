@@ -1,6 +1,7 @@
+"use client";
 import React from 'react';
 import { AmbulanceIcon, PhoneIcon } from 'lucide-react';
-import { site, telHref, whatsappHref } from '../data/site';
+import { site, telHref, whatsappHref } from '@/data/site';
 
 export function EmergencyBanner() {
   return (

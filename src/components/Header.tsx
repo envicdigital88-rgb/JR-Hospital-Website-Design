@@ -1,23 +1,26 @@
+"use client";
+
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { MailIcon, MapPinIcon, MenuIcon, PhoneIcon, XIcon } from 'lucide-react';
-import { mailtoHref, site, telHref } from '../data/site';
+import { mailtoHref, site, telHref } from '@/data/site';
 
 const navItems = [
-{ label: 'Home', to: '/' },
-{ label: 'About Us', to: '/about' },
-{ label: 'Facilities & Services', to: '/services' },
-{ label: 'Doctors', to: '/doctors' },
-{ label: 'Contact', to: '/contact' }];
+{ label: 'Home', href: '/' },
+{ label: 'About Us', href: '/about' },
+{ label: 'Facilities & Services', href: '/services' },
+{ label: 'Doctors', href: '/doctors' },
+{ label: 'Contact', href: '/contact' }];
 
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     setOpen(false);
-  }, [location.pathname]);
+  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-50 w-full">
@@ -41,7 +44,7 @@ export function Header() {
 
       <div className="border-b border-jr-line bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3">
-          <Link to="/" className="flex items-center gap-3" aria-label={`${site.publicName} home`}>
+          <Link href="/" className="flex items-center gap-3" aria-label={`${site.publicName} home`}>
             <img src={site.logoUrl} alt="" className="h-11 w-11 object-contain" />
             <span className="leading-tight">
               <span className="block font-display text-xl font-bold tracking-tight text-jr-red-dark">
@@ -54,22 +57,22 @@ export function Header() {
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
-            {navItems.map((item) =>
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.to === '/'}
-              className={({ isActive }) =>
-              `whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium transition-colors duration-150 ${
-              isActive ?
-              'bg-jr-green-soft text-jr-green-dark' :
-              'text-jr-ink hover:bg-jr-green-soft/60 hover:text-jr-green-dark'}`
-
-              }>
-              
-                {item.label}
-              </NavLink>
-            )}
+            {navItems.map((item) => {
+              const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={
+                  `whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium transition-colors duration-150 ${
+                  isActive ?
+                  'bg-jr-green-soft text-jr-green-dark' :
+                  'text-jr-ink hover:bg-jr-green-soft/60 hover:text-jr-green-dark'}`
+                  }>
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-2">
@@ -96,21 +99,21 @@ export function Header() {
         {open &&
         <nav id="mobile-nav" className="border-t border-jr-line bg-white lg:hidden" aria-label="Mobile">
             <ul className="mx-auto max-w-7xl px-6 py-2">
-              {navItems.map((item) =>
-            <li key={item.to}>
-                  <NavLink
-                to={item.to}
-                end={item.to === '/'}
-                className={({ isActive }) =>
-                `block border-b border-jr-line/70 py-3 text-sm font-medium ${
-                isActive ? 'text-jr-green-dark' : 'text-jr-ink'}`
-
-                }>
-                
-                    {item.label}
-                  </NavLink>
-                </li>
-            )}
+              {navItems.map((item) => {
+                const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className={
+                      `block border-b border-jr-line/70 py-3 text-sm font-medium ${
+                      isActive ? 'text-jr-green-dark' : 'text-jr-ink'}`
+                      }>
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
               <li className="py-3">
                 <a
                 href={telHref(site.phones.hotline.dial)}
@@ -124,6 +127,6 @@ export function Header() {
           </nav>
         }
       </div>
-    </header>);
-
+    </header>
+  );
 }
