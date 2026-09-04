@@ -140,7 +140,7 @@ export default function Home() {
             className="h-full w-full object-cover object-center"
           />
           {/* Gradient overlay: perfectly clear on the left, fading to solid white on the right edge */}
-          <div className="absolute inset-0 bg-white/40 lg:bg-gradient-to-r lg:from-transparent lg:from-50% lg:to-white lg:to-100%"></div>
+          <div className="absolute inset-0 bg-white/60 lg:bg-gradient-to-r lg:from-transparent lg:from-50% lg:to-white lg:to-100%"></div>
         </div>
 
         <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-2">
@@ -148,7 +148,7 @@ export default function Home() {
           <div className="hidden lg:block"></div>
           
           {/* Text Content */}
-          <div className="bg-white/95 lg:bg-transparent p-8 lg:p-0 rounded-3xl shadow-xl lg:shadow-none my-8 lg:my-0">
+          <div className="bg-transparent py-8 lg:p-0 my-4 lg:my-0">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-jr-red">
               About JR Hospital
             </p>
