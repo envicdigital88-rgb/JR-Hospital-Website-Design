@@ -61,12 +61,18 @@ export function Footer() {
             </li>
             <li className="flex gap-3">
               <PhoneIcon className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
-              <span className="flex flex-col">
+              <span className="flex flex-col gap-0.5">
                 <a className="hover:text-white" href={telHref(site.phones.landline.dial)}>
                   {site.phones.landline.display}
                 </a>
+                <a className="hover:text-white" href={telHref(site.phones.landlineAlt.dial)}>
+                  {site.phones.landlineAlt.display}
+                </a>
                 <a className="hover:text-white" href={telHref(site.phones.hotline.dial)}>
                   {site.phones.hotline.display}
+                </a>
+                <a className="hover:text-white" href={telHref(site.phones.alt.dial)}>
+                  {site.phones.alt.display}
                 </a>
               </span>
             </li>

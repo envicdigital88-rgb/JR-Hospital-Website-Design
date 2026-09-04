@@ -75,14 +75,26 @@ export default function Contact() {
                     <a
                       className="mt-1 block text-jr-muted hover:text-jr-green-dark"
                       href={telHref(site.phones.landline.dial)}>
-                      
                       {site.phones.landline.display}
+                      <span className="ml-1.5 text-xs text-jr-muted/70">— main landline</span>
+                    </a>
+                    <a
+                      className="mt-1 block text-jr-muted hover:text-jr-green-dark"
+                      href={telHref(site.phones.landlineAlt.dial)}>
+                      {site.phones.landlineAlt.display}
+                      <span className="ml-1.5 text-xs text-jr-muted/70">— additional landline</span>
                     </a>
                     <a
                       className="mt-1 block text-jr-muted hover:text-jr-green-dark"
                       href={telHref(site.phones.hotline.dial)}>
-                      
-                      {site.phones.hotline.display} — appointments
+                      {site.phones.hotline.display}
+                      <span className="ml-1.5 text-xs text-jr-muted/70">— mobile / appointments</span>
+                    </a>
+                    <a
+                      className="mt-1 block text-jr-muted hover:text-jr-green-dark"
+                      href={telHref(site.phones.alt.dial)}>
+                      {site.phones.alt.display}
+                      <span className="ml-1.5 text-xs text-jr-muted/70">— additional contact</span>
                     </a>
                   </div>
                 </li>

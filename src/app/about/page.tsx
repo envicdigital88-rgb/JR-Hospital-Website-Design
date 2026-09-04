@@ -131,16 +131,24 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-white">
-        <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 py-20 lg:grid-cols-2">
-          <AnimateIn variant="fade-left">
-            <img
-              src={media.laboratory}
-              alt="Laboratory technician processing samples at the hospital laboratory"
-              className="h-[380px] w-full rounded-xl object-cover" />
-          </AnimateIn>
-          
-          <AnimateIn variant="fade-right" delay={100}>
+      <section className="relative bg-white py-20 lg:py-28 overflow-hidden">
+        {/* Background Image aligned to the left & seamlessly blended into the white background */}
+        <div className="absolute inset-y-0 left-0 w-full lg:w-[68%] z-0">
+          <img
+            src={media.laboratory}
+            alt="Laboratory technician processing samples at the hospital laboratory"
+            className="h-full w-full object-cover object-center"
+          />
+          {/* Smooth blend overlay: fully crystal-clear on the left, gently feathering to pure white where text begins */}
+          <div className="absolute inset-0 bg-white/40 lg:bg-gradient-to-r lg:from-transparent lg:from-55% lg:to-white lg:to-100%" />
+        </div>
+
+        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-2">
+          {/* Left spacer so the blended laboratory background shines through on desktop */}
+          <div className="hidden lg:block" />
+
+          {/* Text Content */}
+          <AnimateIn variant="fade-right" delay={100} className="relative z-10">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-jr-red">
               Our facilities
             </p>
@@ -154,20 +162,19 @@ export default function About() {
             </p>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {[
-              '24 Hour OPD',
-              '24 Hour Pharmacy',
-              '24 Hour Laboratory',
-              'Emergency Treatment Unit',
-              'Digital X-Ray & Ultrasound',
-              '2D Echo'].
-              map((item) =>
-              <li
-                key={item}
-                className="rounded-md border border-jr-line bg-jr-cream px-4 py-3 text-sm font-medium text-jr-ink">
-                
+                '24 Hour OPD',
+                '24 Hour Pharmacy',
+                '24 Hour Laboratory',
+                'Emergency Treatment Unit',
+                'Digital X-Ray & Ultrasound',
+                '2D Echo',
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="rounded-md border border-jr-line bg-white/90 backdrop-blur-sm px-4 py-3 text-sm font-medium text-jr-ink shadow-sm">
                   {item}
                 </li>
-              )}
+              ))}
             </ul>
           </AnimateIn>
         </div>
