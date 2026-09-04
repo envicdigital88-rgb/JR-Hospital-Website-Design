@@ -49,3 +49,13 @@ body {
   animation: hero-fade-up 0.65s ease-out both;
   animation-delay: 0.52s;
 }
+
+/* ── Hide scrollbar for mobile carousels & filter pills ── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

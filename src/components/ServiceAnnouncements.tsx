@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { 
   X, 
   ChevronLeft, 
@@ -84,8 +85,24 @@ const enrichedPosters: PosterItem[] = [
 const categories = ['All Notices', 'Consultations', 'Surgical Care', 'Treatments', 'Hospital Services'];
 
 export function ServiceAnnouncements() {
+  const [mounted, setMounted] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All Notices');
   const [activeModalIndex, setActiveModalIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (activeModalIndex !== null) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [activeModalIndex]);
 
   const filteredPosters = selectedCategory === 'All Notices'
     ? enrichedPosters
@@ -120,8 +137,8 @@ export function ServiceAnnouncements() {
 
   return (
     <div className="mt-10">
-      {/* Category Navigation Pills */}
-      <div className="flex flex-wrap items-center gap-2 pb-4">
+      {/* Category Navigation Pills - Swipeable on mobile, wrapping on tablet/desktop */}
+      <div className="flex items-center gap-2 overflow-x-auto pb-3 pt-1 sm:flex-wrap sm:pb-4 no-scrollbar -mx-1 px-1">
         {categories.map((category) => {
           const count = category === 'All Notices'
             ? enrichedPosters.length
@@ -132,7 +149,7 @@ export function ServiceAnnouncements() {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold tracking-wide transition-all duration-200 ${
+              className={`inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold tracking-wide transition-all duration-200 sm:shrink ${
                 isActive
                   ? 'bg-jr-green text-white shadow-md shadow-jr-green/20 scale-[1.02]'
                   : 'border border-jr-line bg-white text-jr-muted hover:border-jr-green/40 hover:text-jr-ink hover:bg-jr-green-soft/40'
@@ -152,20 +169,18 @@ export function ServiceAnnouncements() {
       </div>
 
       {/* Modern 3-Column Card Grid */}
-      <div className="mt-8 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-6 grid grid-cols-1 gap-5 sm:mt-8 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3">
         {filteredPosters.map((poster) => {
           const originalIndex = enrichedPosters.findIndex((p) => p.src === poster.src);
 
           return (
             <div
               key={poster.src}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-jr-line bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-jr-green/40 hover:shadow-xl"
+              onClick={() => setActiveModalIndex(originalIndex)}
+              className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-jr-line bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-jr-green/40 hover:shadow-xl"
             >
               {/* Image Preview Container */}
-              <div
-                onClick={() => setActiveModalIndex(originalIndex)}
-                className="relative aspect-square w-full cursor-pointer overflow-hidden bg-jr-cream"
-              >
+              <div className="relative aspect-square w-full overflow-hidden bg-jr-cream">
                 <img
                   src={poster.src}
                   alt={poster.alt}
@@ -181,7 +196,7 @@ export function ServiceAnnouncements() {
                   </span>
                 </div>
 
-                {/* Hover Overlay with Expand CTA */}
+                {/* Hover / Tap Overlay with Expand CTA */}
                 <div className="absolute inset-0 flex items-center justify-center bg-jr-ink/40 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100">
                   <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold text-jr-ink shadow-lg transition-transform duration-300 group-hover:scale-105">
                     <Maximize2 className="h-3.5 w-3.5 text-jr-green" />
@@ -191,17 +206,14 @@ export function ServiceAnnouncements() {
               </div>
 
               {/* Card Details */}
-              <div className="flex flex-1 flex-col justify-between p-5">
+              <div className="flex flex-1 flex-col justify-between p-4 sm:p-5">
                 <div>
                   <div className="flex items-center gap-2 text-xs font-medium text-jr-muted">
                     <Calendar className="h-3.5 w-3.5 text-jr-red" />
                     <span>{poster.category}</span>
                   </div>
 
-                  <h3
-                    onClick={() => setActiveModalIndex(originalIndex)}
-                    className="mt-2 cursor-pointer font-display text-lg font-bold leading-snug text-jr-ink transition-colors group-hover:text-jr-green"
-                  >
+                  <h3 className="mt-2 font-display text-base font-bold leading-snug text-jr-ink transition-colors group-hover:text-jr-green sm:text-lg">
                     {poster.title}
                   </h3>
 
@@ -211,17 +223,15 @@ export function ServiceAnnouncements() {
                 </div>
 
                 {/* Action Row */}
-                <div className="mt-5 flex items-center justify-between gap-3 border-t border-jr-line/70 pt-4">
-                  <button
-                    onClick={() => setActiveModalIndex(originalIndex)}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-jr-green transition-colors hover:text-jr-green-dark"
-                  >
+                <div className="mt-4 flex items-center justify-between gap-3 border-t border-jr-line/70 pt-3.5 sm:mt-5 sm:pt-4">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-jr-green transition-colors group-hover:text-jr-green-dark">
                     <span>Read flyer</span>
                     <ChevronRight className="h-3.5 w-3.5" />
-                  </button>
+                  </span>
 
                   <a
                     href={telHref(site.phones.hotline.dial)}
+                    onClick={(e) => e.stopPropagation()}
                     className="inline-flex items-center gap-1.5 rounded-lg border border-jr-line bg-jr-cream/80 px-3 py-1.5 text-xs font-medium text-jr-ink transition-colors hover:border-jr-green hover:bg-jr-green-soft hover:text-jr-green-dark"
                   >
                     <Phone className="h-3 w-3 text-jr-green" />
@@ -234,41 +244,43 @@ export function ServiceAnnouncements() {
         })}
       </div>
 
-      {/* Full-Screen Notice Lightbox Modal */}
-      {activePoster && (
+      {/* Full-Screen Notice Lightbox Modal Portal */}
+      {mounted && activePoster && createPortal(
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-md transition-all duration-300"
+          className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/85 p-2.5 sm:p-6 backdrop-blur-md transition-all duration-300"
           onClick={() => setActiveModalIndex(null)}
+          role="dialog"
+          aria-modal="true"
         >
-          {/* Modal Container */}
+          {/* Modal Container Centered in the middle of the screen */}
           <div
-            className="relative flex max-h-[92vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl md:flex-row"
+            className="relative m-auto flex max-h-[92vh] w-full max-w-4xl flex-col overflow-y-auto rounded-2xl bg-white shadow-2xl md:max-h-[90vh] md:flex-row md:overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={() => setActiveModalIndex(null)}
-              className="absolute right-4 top-4 z-20 rounded-full bg-black/60 p-2 text-white transition-colors hover:bg-black"
+              className="absolute right-2.5 top-2.5 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-black/75 text-white shadow-lg transition-colors hover:bg-black focus:outline-none sm:right-3.5 sm:top-3.5"
               aria-label="Close modal"
             >
               <X className="h-5 w-5" />
             </button>
 
-            {/* Poster Image */}
-            <div className="relative flex flex-1 items-center justify-center bg-neutral-900 p-2 md:p-4">
+            {/* Poster Image Area */}
+            <div className="relative flex shrink-0 items-center justify-center bg-neutral-950 p-2 sm:p-5">
               <img
                 src={activePoster.src}
                 alt={activePoster.alt}
-                className="max-h-[60vh] w-auto object-contain rounded-lg md:max-h-[82vh]"
+                className="max-h-[46vh] w-auto max-w-full rounded-lg object-contain shadow-lg sm:max-h-[58vh] md:max-h-[80vh]"
               />
 
-              {/* Prev / Next Navigation Arrows on the image */}
+              {/* Prev / Next Navigation Arrows */}
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   handlePrev();
                 }}
-                className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/60 p-2.5 text-white transition-colors hover:bg-black"
+                className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/70 p-2 text-white shadow-md transition-all hover:scale-110 hover:bg-black focus:outline-none sm:left-3 sm:p-2.5"
                 aria-label="Previous notice"
               >
                 <ChevronLeft className="h-5 w-5" />
@@ -279,7 +291,7 @@ export function ServiceAnnouncements() {
                   e.stopPropagation();
                   handleNext();
                 }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/60 p-2.5 text-white transition-colors hover:bg-black"
+                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/70 p-2 text-white shadow-md transition-all hover:scale-110 hover:bg-black focus:outline-none sm:right-3 sm:p-2.5"
                 aria-label="Next notice"
               >
                 <ChevronRight className="h-5 w-5" />
@@ -287,33 +299,33 @@ export function ServiceAnnouncements() {
             </div>
 
             {/* Modal Sidebar Information */}
-            <div className="flex w-full flex-col justify-between border-t border-jr-line bg-white p-6 md:w-80 md:border-l md:border-t-0 md:p-7">
+            <div className="flex w-full flex-col justify-between border-t border-jr-line bg-white p-5 sm:p-6 md:w-80 md:overflow-y-auto md:border-l md:border-t-0 md:p-7">
               <div>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-jr-green-soft px-3 py-1 text-xs font-semibold text-jr-green-dark">
                   <Sparkles className="h-3 w-3 text-jr-green" />
                   {activePoster.tag}
                 </span>
 
-                <h3 className="mt-4 font-display text-xl font-bold leading-tight text-jr-ink">
+                <h3 className="mt-3 font-display text-lg font-bold leading-tight text-jr-ink sm:mt-3.5 sm:text-xl">
                   {activePoster.title}
                 </h3>
 
-                <p className="mt-3 text-sm leading-relaxed text-jr-muted">
+                <p className="mt-2 text-xs leading-relaxed text-jr-muted sm:mt-3 sm:text-sm">
                   {activePoster.description}
                 </p>
 
-                <div className="mt-6 rounded-xl border border-jr-line bg-jr-cream/60 p-4">
+                <div className="mt-4 rounded-xl border border-jr-line bg-jr-cream/60 p-3.5 sm:mt-5 sm:p-4">
                   <p className="text-xs font-semibold uppercase tracking-wider text-jr-red">
                     Notice details
                   </p>
-                  <p className="mt-1 text-xs text-jr-muted leading-relaxed">
-                    This official hospital flyer is published in Sinhala for local community awareness. For clinic times and doctor appointments, contact our reception.
+                  <p className="mt-1 text-xs leading-relaxed text-jr-muted">
+                    Official hospital flyer published in Sinhala for community awareness. Contact reception for clinic hours and consultant appointments.
                   </p>
                 </div>
               </div>
 
               {/* Call-to-actions */}
-              <div className="mt-6 flex flex-col gap-2.5 pt-4 border-t border-jr-line">
+              <div className="mt-5 flex flex-col gap-2 border-t border-jr-line pt-4 sm:mt-6 sm:gap-2.5">
                 <a
                   href={telHref(site.phones.hotline.dial)}
                   className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-jr-green px-4 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-jr-green-dark"
@@ -334,7 +346,8 @@ export function ServiceAnnouncements() {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );
