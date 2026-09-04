@@ -22,6 +22,15 @@ export default {content: [
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         display: ['"Source Serif 4"', 'Georgia', 'serif'],
       },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 25s linear infinite',
+      },
     },
   },
 }

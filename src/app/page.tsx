@@ -10,79 +10,127 @@ import { site, telHref } from '@/data/site';
 export default function Home() {
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-r from-[#69A8A5] via-[#A6D1CF] to-[#E8F3F1] rounded-tr-[4rem] sm:rounded-tr-[8rem]">
-        {/* Background Watermark */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none select-none z-0">
-          <span className="font-sans text-[12rem] sm:text-[18rem] lg:text-[24rem] font-bold text-[#16211C] whitespace-nowrap -mt-20">Healthcare</span>
-        </div>
+      {/* ── HERO ── */}
+      <section className="relative overflow-hidden bg-jr-green-dark flex flex-col">
 
-        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:py-0 lg:min-h-[600px]">
-          <div className="py-10 lg:py-24">
-            <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] text-[#12522F]">
-              <ClockIcon className="h-4 w-4" aria-hidden="true" />
+        {/* Soft light blobs */}
+        <div className="absolute top-0 left-0 h-[500px] w-[500px] rounded-full bg-white/10 -translate-x-1/3 -translate-y-1/3 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-[#007A50]/30 translate-x-1/4 translate-y-1/4 blur-3xl" />
+
+        {/* ── Main content row ── */}
+        <div className="relative z-10 flex-1 mx-auto w-full max-w-7xl px-6 grid lg:grid-cols-2 items-center gap-10 pt-4 lg:pt-8 pb-0 h-full">
+
+          {/* LEFT: text */}
+          <div className="text-white self-center pb-12 pt-8">
+            {/* Badge */}
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
               24-Hour Healthcare Services
             </span>
-            <h1 className="mt-4 font-sans text-5xl font-extrabold leading-[1.05] text-[#16211C] sm:text-6xl lg:text-7xl tracking-tight">
-              Quality Healthcare.
-              <span className="block">Trusted Care.</span>
+
+            {/* Heading */}
+            <h1 className="mt-5 text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-[4rem]">
+              Quality Healthcare.<br />
+              <span className="text-white/80 font-bold">Trusted Care.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg font-medium leading-relaxed text-[#16211C]/80">
+
+            {/* Subtext */}
+            <p className="mt-6 max-w-md text-[1.05rem] leading-relaxed text-white/80">
               Providing accessible healthcare services and medical facilities for individuals and
               families in Ja-Ela and surrounding communities — at any hour of the day or night.
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+
+            {/* CTA buttons */}
+            <div className="mt-9 flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-md bg-[#FF3B30] px-7 py-4 text-base font-semibold text-white transition-colors duration-150 hover:bg-[#E6352B]">
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-bold text-[#1F7A45] shadow-lg transition hover:scale-105 active:scale-100">
                 Contact Us
                 <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
               </Link>
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center gap-2 rounded-md border border-[#16211C]/30 bg-transparent px-7 py-4 text-base font-semibold text-[#16211C] transition-colors duration-150 hover:bg-[#16211C]/5">
-                Explore Our Services
+                className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/60 px-8 py-3.5 text-sm font-bold text-white transition hover:bg-white/15">
+                Learn More
               </Link>
             </div>
-            
-            <p className="mt-7 text-sm font-medium text-[#16211C]/70">
+
+            {/* Address */}
+            <p className="mt-8 flex items-center gap-2 text-sm text-white/60">
+              <svg className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               {site.address.full}
             </p>
           </div>
 
-          <div className="relative h-[320px] w-full sm:h-[420px] lg:h-full">
+          {/* RIGHT: huge nurse image & concentric circles & floating stats */}
+          <div className="relative self-end hidden lg:flex items-end justify-center w-full h-[450px] lg:h-[550px] xl:h-[620px]">
+            
+            {/* Concentric circles (fully contained) */}
+            <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 h-[50%] aspect-square rounded-full bg-white/20 blur-md pointer-events-none" />
+            <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 h-[75%] aspect-square rounded-full border-[20px] border-white/50 pointer-events-none" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[95%] aspect-square rounded-full border-[20px] border-white/30 pointer-events-none" />
+
+            {/* Doctor Image - Fully contained to avoid being cut off */}
             <img
-              src={media.hero}
-              alt="Reception area of JR Hospital with staff assisting a family"
-              className="absolute inset-0 h-full w-full object-cover lg:[mask-image:linear-gradient(to_right,transparent,black_20%)] lg:[-webkit-mask-image:linear-gradient(to_right,transparent,black_20%)] rounded-xl lg:rounded-none"
+              src="/Happy_smiling_young_doctor___Premium_AI-generated_image-removebg-preview.png"
+              alt="JR Hospital medical professional"
+              className="relative z-10 h-[95%] w-auto object-contain object-bottom pointer-events-none"
+              style={{ filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.25))' }}
             />
-          </div>
-        </div>
-
-        {/* Floating Healthline Banner */}
-        <div className="absolute bottom-8 left-0 bg-[#FF3B30] text-white px-5 py-3 rounded-r-xl flex items-center gap-3 shadow-xl z-20 transition-transform hover:scale-105">
-          <div className="bg-white/20 p-2 rounded-full hidden sm:block">
-            <PhoneIcon className="h-5 w-5" />
-          </div>
-          <div>
-            <p className="text-[10px] font-bold uppercase tracking-wider opacity-90">24/7 Healthline</p>
-            <a href={telHref(site.phones.hotline.dial)} className="text-lg font-extrabold leading-tight block hover:underline">
-              {site.phones.hotline.display}
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section aria-label="Round the clock services" className="border-b border-jr-line bg-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 divide-jr-line px-6 sm:divide-x lg:grid-cols-4">
-          {roundTheClock.map((item) =>
-          <div key={item.title} className="px-0 py-7 sm:px-8 sm:first:pl-0 sm:last:pr-0">
-              <p className="font-display text-lg font-bold text-jr-green-dark">{item.title}</p>
-              <p className="mt-1.5 text-sm leading-relaxed text-jr-muted">{item.detail}</p>
+            
+            {/* Floating stat card 1 (Left) */}
+            <div className="absolute top-[20%] -left-8 z-20 flex items-center gap-3 rounded-2xl bg-white/95 backdrop-blur-md px-5 py-4 shadow-2xl">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1F7A45]/10 text-[#1F7A45]">
+                 <span className="font-extrabold text-xl">15+</span>
+              </span>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-wider text-gray-500">Specialists</p>
+                <p className="text-sm font-extrabold text-[#12522F]">Available Daily</p>
+              </div>
             </div>
-          )}
+
+            {/* Floating stat card 2 (Right) */}
+            <div className="absolute bottom-[15%] -right-4 z-20 flex items-center gap-3 rounded-2xl bg-white/95 backdrop-blur-md px-5 py-4 shadow-2xl">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1F7A45]/10 text-[#1F7A45]">
+                 <span className="font-extrabold text-xl">24/7</span>
+              </span>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-wider text-gray-500">Open Always</p>
+                <p className="text-sm font-extrabold text-[#12522F]">Emergency Care</p>
+              </div>
+            </div>
+            
+            {/* Floating stat card 3 (Top Right) */}
+            <div className="absolute top-[5%] right-0 z-20 flex items-center gap-3 rounded-2xl bg-white/95 backdrop-blur-md px-5 py-4 shadow-2xl">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1F7A45]/10 text-[#1F7A45]">
+                 <span className="font-extrabold text-xl">100%</span>
+              </span>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-wider text-gray-500">Patient Focus</p>
+                <p className="text-sm font-extrabold text-[#12522F]">Trusted Care</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+
+
+
+      {/* ── Round the clock (Marquee) ── */}
+      <section aria-label="Round the clock services" className="border-b border-jr-line bg-white overflow-hidden py-7">
+        <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
+          {[...roundTheClock, ...roundTheClock, ...roundTheClock, ...roundTheClock].map((item, index) => (
+            <div key={`${item.title}-${index}`} className="flex flex-col justify-center px-12 border-r border-jr-line min-w-[350px]">
+              <p className="font-display text-lg font-bold text-jr-green-dark whitespace-nowrap">{item.title}</p>
+              <p className="mt-1.5 text-sm leading-relaxed text-jr-muted whitespace-nowrap">{item.detail}</p>
+            </div>
+          ))}
         </div>
       </section>
 
+      {/* ── About section ── */}
       <section className="bg-white">
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 py-20 lg:grid-cols-2">
           <div className="relative">
@@ -128,6 +176,43 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── VIDEO BANNER ── */}
+      <section className="relative overflow-hidden h-[520px] sm:h-[600px] lg:h-[680px]">
+        {/* Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover object-top"
+          src="/AQN4KRKeyb3uBgDRP4Bj3DKG1n7gJPmIzCTFeSv0uwwr0vIc0lFn6EwtZFaaWdKpBw5YhfwbV-Pp_8RC6kLRT0A.mp4"
+        />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0D4A3A]/85 via-[#0D4A3A]/60 to-transparent" />
+
+        {/* Content */}
+        <div className="relative z-10 flex h-full items-center px-6">
+          <div className="mx-auto max-w-7xl w-full">
+            <div className="max-w-xl text-white">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-300">Why choose us</p>
+              <h2 className="mt-3 text-3xl font-extrabold leading-tight sm:text-4xl">
+                Compassionate care, <br />every hour of every day.
+              </h2>
+              <p className="mt-4 text-white/75 text-sm leading-relaxed max-w-sm">
+                From emergency treatment to specialist consultations, we are always open and always ready to serve you and your family.
+              </p>
+              <Link
+                href="/services"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-6 py-2.5 text-sm font-bold text-[#0D4A3A] shadow-lg hover:scale-105 transition">
+                Our Services
+                <ArrowRightIcon className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Key Facilities ── */}
       <section className="bg-jr-cream">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
@@ -165,6 +250,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Specialist Consultation ── */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="grid items-center gap-10 rounded-2xl border border-jr-line bg-jr-green-soft/60 p-8 lg:grid-cols-[1fr_0.85fr] lg:p-12">
@@ -209,3 +295,5 @@ export default function Home() {
     </>);
 
 }
+
+
