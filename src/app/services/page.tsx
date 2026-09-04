@@ -3,6 +3,7 @@ import { CheckIcon, ClockIcon } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 import { EmergencyBanner } from '@/components/EmergencyBanner';
 import { Icon } from '@/components/Icon';
+import { AnimateIn } from '@/components/AnimateIn';
 import { serviceCategories } from '@/data/services';
 import { awarenessPosters } from '@/data/media';
 
@@ -20,7 +21,7 @@ export default function Services() {
 
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-16 lg:py-20">
-          <div className="overflow-hidden rounded-2xl bg-jr-red-dark">
+          <AnimateIn variant="fade-up" className="overflow-hidden rounded-2xl bg-jr-red-dark">
             <div className="grid gap-10 p-8 lg:grid-cols-[0.85fr_1.15fr] lg:p-12">
               <div>
                 <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-white">
@@ -41,18 +42,22 @@ export default function Services() {
                 )}
               </ul>
             </div>
-          </div>
+          </AnimateIn>
         </div>
       </section>
 
       <section className="bg-jr-cream">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="grid gap-6 lg:grid-cols-2">
-            {rest.map((category) =>
-            <article
+            {rest.map((category, i) =>
+            <AnimateIn
               key={category.id}
-              id={category.id}
-              className="flex h-full flex-col rounded-xl border border-jr-line bg-white p-8">
+              variant="fade-up"
+              delay={i % 2 === 0 ? 0 : 150}
+            >
+              <article
+                id={category.id}
+                className="flex h-full flex-col rounded-xl border border-jr-line bg-white p-8">
               
                 <div className="flex items-start gap-4">
                   <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-jr-green-soft text-jr-green">
@@ -77,6 +82,7 @@ export default function Services() {
                 )}
                 </ul>
               </article>
+            </AnimateIn>
             )}
           </div>
         </div>
@@ -84,7 +90,7 @@ export default function Services() {
 
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-20">
-          <div className="max-w-2xl">
+          <AnimateIn variant="fade-up" className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-jr-red">
               From the hospital
             </p>
@@ -95,7 +101,7 @@ export default function Services() {
               Notices published by JR Hospital for patients in the area, covering clinics and
               treatments currently offered.
             </p>
-          </div>
+          </AnimateIn>
 
           {/* Redesigned Service Cards with Animations */}
           <div className="mt-12">

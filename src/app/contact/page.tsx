@@ -3,6 +3,7 @@ import { ClockIcon, MailIcon, MapPinIcon, NavigationIcon, PhoneIcon, SmartphoneI
 import { PageHeader } from '@/components/PageHeader';
 import { ContactForm } from '@/components/ContactForm';
 import { EmergencyBanner } from '@/components/EmergencyBanner';
+import { AnimateIn } from '@/components/AnimateIn';
 import { directionsUrl, mailtoHref, mapsEmbedUrl, site, telHref, whatsappHref } from '@/data/site';
 
 export default function Contact() {
@@ -56,7 +57,7 @@ export default function Contact() {
 
       <section className="bg-jr-cream">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="space-y-5">
+          <AnimateIn variant="fade-left" className="space-y-5">
             <div className="rounded-xl border border-jr-line bg-white p-7">
               <h2 className="font-display text-2xl font-bold text-jr-ink">Contact details</h2>
               <ul className="mt-6 space-y-6 text-sm">
@@ -118,17 +119,19 @@ export default function Contact() {
                 {site.phones.hotline.display}
               </a>
             </div>
-          </div>
+          </AnimateIn>
 
-          <div id="enquiry" className="scroll-mt-28">
-            <ContactForm />
-          </div>
+          <AnimateIn variant="fade-right" delay={150}>
+            <div id="enquiry" className="scroll-mt-28">
+              <ContactForm />
+            </div>
+          </AnimateIn>
         </div>
       </section>
 
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-16">
-          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <AnimateIn variant="fade-up" className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-jr-red">Find us</p>
               <h2 className="mt-3 font-display text-3xl font-bold text-jr-ink">
@@ -144,16 +147,15 @@ export default function Contact() {
               <NavigationIcon className="h-4 w-4" aria-hidden="true" />
               Open in Google Maps
             </a>
-          </div>
-          <div className="mt-8 overflow-hidden rounded-xl border border-jr-line">
+          </AnimateIn>
+          <AnimateIn variant="fade-up" delay={150} className="mt-8 overflow-hidden rounded-xl border border-jr-line">
             <iframe
               title={`Map showing ${site.publicNameFull}`}
               src={mapsEmbedUrl}
               className="h-[420px] w-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade" />
-            
-          </div>
+          </AnimateIn>
         </div>
       </section>
 

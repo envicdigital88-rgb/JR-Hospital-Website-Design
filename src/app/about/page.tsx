@@ -2,6 +2,7 @@ import React from 'react';
 import { BedDoubleIcon, ClockIcon, HeartHandshakeIcon, ShieldCheckIcon } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 import { EmergencyBanner } from '@/components/EmergencyBanner';
+import { AnimateIn } from '@/components/AnimateIn';
 import { media } from '@/data/media';
 import { site } from '@/data/site';
 
@@ -21,7 +22,7 @@ const commitments = [
 {
   title: 'Support beyond the consultation',
   description:
-  'Home nursing visits, counselling and physiotherapy continue a patient’s care after they leave the hospital.',
+  'Home nursing visits, counselling and physiotherapy continue a patient\'s care after they leave the hospital.',
   icon: HeartHandshakeIcon
 },
 {
@@ -44,7 +45,7 @@ export default function About() {
 
       <section className="bg-white">
         <div className="mx-auto grid max-w-7xl gap-14 px-6 py-20 lg:grid-cols-[1fr_0.9fr]">
-          <div>
+          <AnimateIn variant="fade-left">
             <h2 className="font-display text-3xl font-bold leading-tight text-jr-ink">
               About JR Hospital
             </h2>
@@ -69,9 +70,9 @@ export default function About() {
               are all offered on site, and home nursing visits extend that care to patients who are
               recovering at home.
             </p>
-          </div>
+          </AnimateIn>
 
-          <div className="space-y-5">
+          <AnimateIn variant="fade-right" delay={100} className="space-y-5">
             <img
               src={media.emergency}
               alt="Ambulance parked at the hospital emergency entrance at night"
@@ -94,35 +95,37 @@ export default function About() {
                 </div>
                 <div className="flex justify-between gap-4">
                   <dt className="text-jr-muted">Services listed</dt>
-                  <dd className="text-right font-medium text-jr-ink">23 facilities & services</dd>
+                  <dd className="text-right font-medium text-jr-ink">23 facilities &amp; services</dd>
                 </div>
               </dl>
             </div>
-          </div>
+          </AnimateIn>
         </div>
       </section>
 
       <section className="bg-jr-cream">
         <div className="mx-auto max-w-7xl px-6 py-20">
-          <div className="max-w-2xl">
+          <AnimateIn variant="fade-up" className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-jr-red">
               Our commitment to healthcare
             </p>
             <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-jr-ink">
               Four things patients can rely on
             </h2>
-          </div>
+          </AnimateIn>
           <ul className="mt-10 grid gap-5 md:grid-cols-2">
-            {commitments.map((item) =>
-            <li key={item.title} className="flex h-full gap-5 rounded-xl border border-jr-line bg-white p-7">
-                <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-jr-green-soft text-jr-green">
-                  <item.icon className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <div>
-                  <h3 className="font-display text-xl font-bold text-jr-ink">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-jr-muted">{item.description}</p>
-                </div>
-              </li>
+            {commitments.map((item, i) =>
+            <AnimateIn key={item.title} variant="fade-up" delay={i % 2 === 0 ? 0 : 150}>
+              <li className="flex h-full gap-5 rounded-xl border border-jr-line bg-white p-7">
+                  <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-jr-green-soft text-jr-green">
+                    <item.icon className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <div>
+                    <h3 className="font-display text-xl font-bold text-jr-ink">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-jr-muted">{item.description}</p>
+                  </div>
+                </li>
+            </AnimateIn>
             )}
           </ul>
         </div>
@@ -130,12 +133,14 @@ export default function About() {
 
       <section className="bg-white">
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 py-20 lg:grid-cols-2">
-          <img
-            src={media.laboratory}
-            alt="Laboratory technician processing samples at the hospital laboratory"
-            className="h-[380px] w-full rounded-xl object-cover" />
+          <AnimateIn variant="fade-left">
+            <img
+              src={media.laboratory}
+              alt="Laboratory technician processing samples at the hospital laboratory"
+              className="h-[380px] w-full rounded-xl object-cover" />
+          </AnimateIn>
           
-          <div>
+          <AnimateIn variant="fade-right" delay={100}>
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-jr-red">
               Our facilities
             </p>
@@ -164,7 +169,7 @@ export default function About() {
                 </li>
               )}
             </ul>
-          </div>
+          </AnimateIn>
         </div>
       </section>
 

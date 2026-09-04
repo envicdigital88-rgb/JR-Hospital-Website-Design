@@ -2,6 +2,7 @@ import React from 'react';
 import { AlertTriangleIcon, PhoneIcon } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 import { EmergencyBanner } from '@/components/EmergencyBanner';
+import { AnimateIn } from '@/components/AnimateIn';
 import { hospitalDoctors, initialsOf, pendingDoctors } from '@/data/doctors';
 import { site, telHref } from '@/data/site';
 import type { Doctor } from '@/types/content';
@@ -70,7 +71,7 @@ export default function Doctors({ showPendingDoctors }: DoctorsProps) {
 
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-20">
-          <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <AnimateIn variant="fade-up" className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div className="max-w-2xl">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-jr-red">
                 Hospital doctors
@@ -86,11 +87,13 @@ export default function Doctors({ showPendingDoctors }: DoctorsProps) {
               <PhoneIcon className="h-4 w-4" aria-hidden="true" />
               Ask about session times
             </a>
-          </div>
+          </AnimateIn>
 
           <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {hospitalDoctors.map((doctor) =>
-            <DoctorCard key={doctor.name} doctor={doctor} />
+            {hospitalDoctors.map((doctor, i) =>
+            <AnimateIn key={doctor.name} variant="fade-up" delay={i % 3 === 0 ? 0 : i % 3 === 1 ? 100 : 200}>
+              <DoctorCard doctor={doctor} />
+            </AnimateIn>
             )}
           </ul>
         </div>

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRightIcon, CheckIcon, ClockIcon, PhoneIcon, StethoscopeIcon } from 'lucide-react';
 import { Icon } from '@/components/Icon';
 import { EmergencyBanner } from '@/components/EmergencyBanner';
+import { AnimateIn } from '@/components/AnimateIn';
 import { keyFacilities, roundTheClock } from '@/data/services';
 import { media } from '@/data/media';
 import { site, telHref } from '@/data/site';
@@ -23,25 +24,25 @@ export default function Home() {
           {/* LEFT: text */}
           <div className="text-white self-center pb-4 lg:pb-12 pt-8">
             {/* Badge */}
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-sm">
+            <span className="hero-word-1 inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
               24-Hour Healthcare Services
             </span>
 
             {/* Heading */}
-            <h1 className="mt-5 text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-[4rem]">
+            <h1 className="hero-word-2 mt-5 text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-[4rem]">
               Quality Healthcare.<br />
               <span className="text-white/80 font-bold">Trusted Care.</span>
             </h1>
 
             {/* Subtext */}
-            <p className="mt-6 max-w-md text-[1.05rem] leading-relaxed text-white/80">
+            <p className="hero-word-3 mt-6 max-w-md text-[1.05rem] leading-relaxed text-white/80">
               Providing accessible healthcare services and medical facilities for individuals and
               families in Ja-Ela and surrounding communities — at any hour of the day or night.
             </p>
 
             {/* CTA buttons */}
-            <div className="mt-9 flex flex-wrap gap-4">
+            <div className="hero-word-4 mt-9 flex flex-wrap gap-4">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-bold text-[#1F7A45] shadow-lg transition hover:scale-105 active:scale-100">
@@ -56,7 +57,7 @@ export default function Home() {
             </div>
 
             {/* Address */}
-            <p className="mt-8 flex items-center gap-2 text-sm text-white/60">
+            <p className="hero-word-4 mt-8 flex items-center gap-2 text-sm text-white/60">
               <svg className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               {site.address.full}
             </p>
@@ -148,7 +149,7 @@ export default function Home() {
           <div className="hidden lg:block"></div>
           
           {/* Text Content */}
-          <div className="bg-transparent py-8 lg:p-0 my-4 lg:my-0">
+          <AnimateIn variant="fade-right" className="bg-transparent py-8 lg:p-0 my-4 lg:my-0">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-jr-red">
               About JR Hospital
             </p>
@@ -180,7 +181,7 @@ export default function Home() {
               More about the hospital
               <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
             </Link>
-          </div>
+          </AnimateIn>
         </div>
       </section>
 
@@ -201,7 +202,7 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 flex h-full items-center px-6">
           <div className="mx-auto max-w-7xl w-full">
-            <div className="max-w-xl text-white">
+            <AnimateIn variant="fade-up" className="max-w-xl text-white">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-300">Why choose us</p>
               <h2 className="mt-3 text-3xl font-extrabold leading-tight sm:text-4xl">
                 Compassionate care, <br />every hour of every day.
@@ -215,7 +216,7 @@ export default function Home() {
                 Our Services
                 <ArrowRightIcon className="h-4 w-4" />
               </Link>
-            </div>
+            </AnimateIn>
           </div>
         </div>
       </section>
@@ -223,7 +224,7 @@ export default function Home() {
       {/* ── Key Facilities ── */}
       <section className="bg-jr-cream">
         <div className="mx-auto max-w-7xl px-6 py-20">
-          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <AnimateIn variant="fade-up" className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div className="max-w-2xl">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-jr-red">
                 Key Facilities
@@ -239,7 +240,7 @@ export default function Home() {
               All 23 facilities
               <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
             </Link>
-          </div>
+          </AnimateIn>
 
           <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {keyFacilities.map((facility) =>
@@ -262,7 +263,7 @@ export default function Home() {
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="grid items-center gap-10 rounded-2xl border border-jr-line bg-jr-green-soft/60 p-8 lg:grid-cols-[1fr_0.85fr] lg:p-12">
-            <div>
+            <AnimateIn variant="fade-left">
               <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-jr-green text-white">
                 <StethoscopeIcon className="h-5 w-5" aria-hidden="true" />
               </span>
@@ -289,12 +290,13 @@ export default function Home() {
                   Ask about clinic times
                 </a>
               </div>
-            </div>
-            <img
-              src={media.imaging}
-              alt="Radiographer operating digital imaging equipment at the hospital"
-              className="h-[280px] w-full rounded-xl object-cover lg:h-[360px]" />
-            
+            </AnimateIn>
+            <AnimateIn variant="fade-right" delay={150}>
+              <img
+                src={media.imaging}
+                alt="Radiographer operating digital imaging equipment at the hospital"
+                className="h-[280px] w-full rounded-xl object-cover lg:h-[360px]" />
+            </AnimateIn>
           </div>
         </div>
       </section>
