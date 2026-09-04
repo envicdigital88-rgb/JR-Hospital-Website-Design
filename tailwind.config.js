@@ -27,9 +27,15 @@ export default {content: [
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
         },
+        'preloader-bar': {
+          '0%': { width: '0%' },
+          '60%': { width: '80%' },
+          '100%': { width: '100%' },
+        },
       },
       animation: {
         marquee: 'marquee 25s linear infinite',
+        'preloader-bar': 'preloader-bar 0.8s ease-out forwards',
       },
     },
   },

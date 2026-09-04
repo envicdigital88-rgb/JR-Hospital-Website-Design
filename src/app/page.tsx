@@ -18,10 +18,10 @@ export default function Home() {
         <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-[#007A50]/30 translate-x-1/4 translate-y-1/4 blur-3xl" />
 
         {/* ── Main content row ── */}
-        <div className="relative z-10 flex-1 mx-auto w-full max-w-7xl px-6 grid lg:grid-cols-2 items-center gap-10 pt-4 lg:pt-8 pb-0 h-full">
+        <div className="relative z-10 flex-1 mx-auto w-full max-w-7xl px-6 grid lg:grid-cols-2 items-center gap-2 lg:gap-10 pt-4 lg:pt-8 pb-0 h-full">
 
           {/* LEFT: text */}
-          <div className="text-white self-center pb-12 pt-8">
+          <div className="text-white self-center pb-4 lg:pb-12 pt-8">
             {/* Badge */}
             <span className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
@@ -63,7 +63,7 @@ export default function Home() {
           </div>
 
           {/* RIGHT: huge nurse image & concentric circles & floating stats */}
-          <div className="relative self-end flex items-end justify-center w-full h-[380px] sm:h-[450px] lg:h-[550px] xl:h-[620px] mt-8 lg:mt-0">
+          <div className="relative self-end flex items-end justify-center w-full h-[380px] sm:h-[450px] lg:h-[550px] xl:h-[620px] mt-0 lg:mt-0">
             
             {/* Concentric circles (fully contained) */}
             <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 h-[50%] aspect-square rounded-full bg-white/20 blur-md pointer-events-none" />
