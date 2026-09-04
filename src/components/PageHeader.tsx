@@ -15,12 +15,12 @@ export function PageHeader({ eyebrow, title, description, imageUrl }: PageHeader
       <section className="relative overflow-hidden bg-jr-green-dark border-b border-jr-line">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img src={imageUrl} alt="" className="h-full w-full object-cover object-[center_30%]" />
+          <img src={imageUrl} alt="" className="h-full w-full object-cover object-[center_35%]" />
           {/* Gradient Overlay for Text Readability - much lighter in the middle so the image is visible */}
           <div className="absolute inset-0 bg-[#12522F]/60 sm:bg-gradient-to-r sm:from-[#12522F]/95 sm:via-[#12522F]/40 sm:to-transparent" />
         </div>
         
-        <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 lg:py-32">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 py-32 lg:py-48">
           <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-xs text-white/70">
             <Link href="/" className="hover:text-white transition">
               Home

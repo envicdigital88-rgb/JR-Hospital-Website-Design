@@ -39,7 +39,7 @@ export default function About() {
         eyebrow="About Us"
         title="A hospital on Negombo Road that stays open"
         description={`${site.registeredName} — publicly known as ${site.publicNameFull} — provides outpatient, diagnostic, specialist and inward care to families in Ja-Ela and the surrounding communities.`}
-        imageUrl="/6698c590236023c899f8d23e_Hero image (3).webp" />
+        imageUrl="/download (3).jpg" />
       
 
       <section className="bg-white">
