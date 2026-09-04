@@ -63,12 +63,12 @@ export default function Home() {
           </div>
 
           {/* RIGHT: huge nurse image & concentric circles & floating stats */}
-          <div className="relative self-end hidden lg:flex items-end justify-center w-full h-[450px] lg:h-[550px] xl:h-[620px]">
+          <div className="relative self-end flex items-end justify-center w-full h-[380px] sm:h-[450px] lg:h-[550px] xl:h-[620px] mt-8 lg:mt-0">
             
             {/* Concentric circles (fully contained) */}
             <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 h-[50%] aspect-square rounded-full bg-white/20 blur-md pointer-events-none" />
-            <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 h-[75%] aspect-square rounded-full border-[20px] border-white/50 pointer-events-none" />
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[95%] aspect-square rounded-full border-[20px] border-white/30 pointer-events-none" />
+            <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 h-[75%] aspect-square rounded-full border-[10px] sm:border-[20px] border-white/50 pointer-events-none" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[95%] aspect-square rounded-full border-[10px] sm:border-[20px] border-white/30 pointer-events-none" />
 
             {/* Doctor Image - Fully contained to avoid being cut off */}
             <img
@@ -79,35 +79,35 @@ export default function Home() {
             />
             
             {/* Floating stat card 1 (Left) */}
-            <div className="absolute top-[20%] -left-8 z-20 flex items-center gap-3 rounded-2xl bg-white/95 backdrop-blur-md px-5 py-4 shadow-2xl">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1F7A45]/10 text-[#1F7A45]">
-                 <span className="font-extrabold text-xl">15+</span>
+            <div className="absolute top-[20%] left-0 sm:-left-8 z-20 flex items-center gap-2 sm:gap-3 rounded-2xl bg-white/95 backdrop-blur-md px-3 sm:px-5 py-2 sm:py-4 shadow-2xl scale-90 sm:scale-100 origin-left">
+              <span className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#1F7A45]/10 text-[#1F7A45]">
+                 <span className="font-extrabold text-lg sm:text-xl">15+</span>
               </span>
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-gray-500">Specialists</p>
-                <p className="text-sm font-extrabold text-[#12522F]">Available Daily</p>
+                <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-gray-500">Specialists</p>
+                <p className="text-xs sm:text-sm font-extrabold text-[#12522F]">Available Daily</p>
               </div>
             </div>
 
             {/* Floating stat card 2 (Right) */}
-            <div className="absolute bottom-[15%] -right-4 z-20 flex items-center gap-3 rounded-2xl bg-white/95 backdrop-blur-md px-5 py-4 shadow-2xl">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1F7A45]/10 text-[#1F7A45]">
-                 <span className="font-extrabold text-xl">24/7</span>
+            <div className="absolute bottom-[10%] right-0 sm:-right-4 z-20 flex items-center gap-2 sm:gap-3 rounded-2xl bg-white/95 backdrop-blur-md px-3 sm:px-5 py-2 sm:py-4 shadow-2xl scale-90 sm:scale-100 origin-right">
+              <span className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#1F7A45]/10 text-[#1F7A45]">
+                 <span className="font-extrabold text-lg sm:text-xl">24/7</span>
               </span>
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-gray-500">Open Always</p>
-                <p className="text-sm font-extrabold text-[#12522F]">Emergency Care</p>
+                <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-gray-500">Open Always</p>
+                <p className="text-xs sm:text-sm font-extrabold text-[#12522F]">Emergency Care</p>
               </div>
             </div>
             
             {/* Floating stat card 3 (Top Right) */}
-            <div className="absolute top-[5%] right-0 z-20 flex items-center gap-3 rounded-2xl bg-white/95 backdrop-blur-md px-5 py-4 shadow-2xl">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1F7A45]/10 text-[#1F7A45]">
-                 <span className="font-extrabold text-xl">100%</span>
+            <div className="absolute top-[5%] right-0 z-20 flex items-center gap-2 sm:gap-3 rounded-2xl bg-white/95 backdrop-blur-md px-3 sm:px-5 py-2 sm:py-4 shadow-2xl scale-90 sm:scale-100 origin-right">
+              <span className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#1F7A45]/10 text-[#1F7A45]">
+                 <span className="font-extrabold text-lg sm:text-xl">100%</span>
               </span>
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-gray-500">Patient Focus</p>
-                <p className="text-sm font-extrabold text-[#12522F]">Trusted Care</p>
+                <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-gray-500">Patient Focus</p>
+                <p className="text-xs sm:text-sm font-extrabold text-[#12522F]">Trusted Care</p>
               </div>
             </div>
           </div>
@@ -131,16 +131,24 @@ export default function Home() {
       </section>
 
       {/* ── About section ── */}
-      <section className="bg-white">
-        <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 py-20 lg:grid-cols-2">
-          <div className="relative">
-            <img
-              src={media.patientCare}
-              alt="A nurse caring for an elderly patient in an air-conditioned hospital room"
-              className="h-[380px] w-full rounded-xl object-cover lg:h-[480px]" />
-            
-          </div>
-          <div>
+      <section className="relative bg-white py-16 lg:py-32 overflow-hidden">
+        {/* Background Image aligned to the left & seamlessly blended into white */}
+        <div className="absolute inset-y-0 left-0 w-full lg:w-[65%] z-0">
+          <img
+            src={media.patientCare}
+            alt="A nurse caring for an elderly patient in an air-conditioned hospital room"
+            className="h-full w-full object-cover object-center"
+          />
+          {/* Gradient overlay: perfectly clear on the left, fading to solid white on the right edge */}
+          <div className="absolute inset-0 bg-white/40 lg:bg-gradient-to-r lg:from-transparent lg:from-50% lg:to-white lg:to-100%"></div>
+        </div>
+
+        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-2">
+          {/* Spacer */}
+          <div className="hidden lg:block"></div>
+          
+          {/* Text Content */}
+          <div className="bg-white/95 lg:bg-transparent p-8 lg:p-0 rounded-3xl shadow-xl lg:shadow-none my-8 lg:my-0">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-jr-red">
               About JR Hospital
             </p>
