@@ -25,7 +25,9 @@ export const site = {
     landlineAlt: { label: 'Additional Landline', display: '011 224 7440', dial: '+94112247440' },
     // Mobile hotline used for appointments and WhatsApp.
     hotline: { label: 'Mobile / Appointments', display: '076 022 8181', dial: '+94760228181' },
-    alt: { label: 'Additional Contact', display: '077 341 9425', dial: '+94773419425' }
+    alt: { label: 'Additional Contact', display: '077 341 9425', dial: '+94773419425' },
+    // Management and administrative inquiries.
+    management: { label: 'Management Inquiries', display: '+94 77 932 9939', dial: '+94779329939' }
   },
   whatsapp: '+94760228181',
   email: 'ragamahospitals@gmail.com',

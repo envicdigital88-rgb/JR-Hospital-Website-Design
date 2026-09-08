@@ -1,5 +1,5 @@
 import React from 'react';
-import { ClockIcon, MailIcon, MapPinIcon, NavigationIcon, PhoneIcon, SmartphoneIcon } from 'lucide-react';
+import { Building2Icon, ClockIcon, MailIcon, MapPinIcon, NavigationIcon, PhoneIcon, SmartphoneIcon } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 import { ContactForm } from '@/components/ContactForm';
 import { EmergencyBanner } from '@/components/EmergencyBanner';
@@ -52,6 +52,42 @@ export default function Contact() {
               Send Enquiry
             </a>
           </div>
+
+          {/* Management Inquiries & Administration Banner */}
+          <div className="mt-8 overflow-hidden rounded-2xl border border-jr-green/30 bg-gradient-to-r from-jr-green-soft via-white to-jr-cream p-6 shadow-sm sm:p-8">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+              <div className="max-w-2xl">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-jr-green/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-jr-green-dark">
+                  <Building2Icon className="h-3.5 w-3.5 text-jr-green" aria-hidden="true" />
+                  Hospital Administration & Management
+                </span>
+                <h3 className="mt-3 font-display text-2xl font-bold text-jr-ink">
+                  Management Inquiries — JR Hospital
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-jr-muted sm:text-base">
+                  Direct hotline for management inquiries, administrative matters, corporate partnerships, official feedback, or any other communications.
+                </p>
+              </div>
+              <div className="flex shrink-0 flex-wrap items-center gap-3">
+                <a
+                  href={telHref(site.phones.management.dial)}
+                  className="inline-flex items-center gap-2 rounded-xl bg-jr-green px-5 py-3.5 text-base font-semibold text-white shadow-md shadow-jr-green/20 transition-all hover:scale-[1.02] hover:bg-jr-green-dark"
+                >
+                  <PhoneIcon className="h-4 w-4" aria-hidden="true" />
+                  <span>+94 77 932 9939</span>
+                </a>
+                <a
+                  href="https://wa.me/94779329939"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl border border-jr-line bg-white px-5 py-3.5 text-base font-semibold text-jr-ink shadow-sm transition-all hover:border-jr-green/40 hover:bg-jr-cream"
+                >
+                  <SmartphoneIcon className="h-4 w-4 text-emerald-600" aria-hidden="true" />
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -96,6 +132,12 @@ export default function Contact() {
                       {site.phones.alt.display}
                       <span className="ml-1.5 text-xs text-jr-muted/70">— additional contact</span>
                     </a>
+                    <a
+                      className="mt-1 block text-jr-muted hover:text-jr-green-dark"
+                      href={telHref(site.phones.management.dial)}>
+                      {site.phones.management.display}
+                      <span className="ml-1.5 text-xs text-jr-muted/70">— management & other inquiries</span>
+                    </a>
                   </div>
                 </li>
                 <li className="flex gap-4">
@@ -115,6 +157,42 @@ export default function Contact() {
                   </div>
                 </li>
               </ul>
+            </div>
+
+            {/* Management & Administrative Inquiries Card */}
+            <div className="rounded-xl border border-jr-green/25 bg-gradient-to-br from-white via-white to-jr-green-soft/40 p-7 shadow-sm">
+              <div className="flex items-center gap-2.5">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-jr-green text-white shadow-sm">
+                  <Building2Icon className="h-4 w-4" aria-hidden="true" />
+                </span>
+                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-jr-green-dark">
+                  Hospital Administration
+                </span>
+              </div>
+              <h3 className="mt-3 font-display text-xl font-bold text-jr-ink">
+                Management Inquiries
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-jr-muted">
+                Direct contact line for management inquiries, administrative matters, corporate partnerships, or any other official communications with JR Hospital.
+              </p>
+              <div className="mt-5 flex flex-wrap items-center gap-3">
+                <a
+                  href={telHref(site.phones.management.dial)}
+                  className="inline-flex items-center gap-2 rounded-lg bg-jr-green px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-jr-green-dark"
+                >
+                  <PhoneIcon className="h-4 w-4" aria-hidden="true" />
+                  <span>Call {site.phones.management.display}</span>
+                </a>
+                <a
+                  href="https://wa.me/94779329939"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-jr-line bg-white px-4 py-2.5 text-sm font-semibold text-jr-ink shadow-sm transition-colors hover:bg-jr-cream"
+                >
+                  <SmartphoneIcon className="h-4 w-4 text-emerald-600" aria-hidden="true" />
+                  <span>WhatsApp</span>
+                </a>
+              </div>
             </div>
 
             <div className="rounded-xl bg-jr-red-dark p-7 text-white">

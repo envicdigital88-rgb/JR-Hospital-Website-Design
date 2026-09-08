@@ -37,9 +37,18 @@ export function Header() {
               {site.email}
             </a>
           </div>
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 font-medium">
-            Open 24 hours — every day
-          </span>
+          <div className="flex items-center gap-4">
+            <a
+              href={telHref(site.phones.management.dial)}
+              className="inline-flex items-center gap-1.5 text-white/90 transition-colors hover:text-white"
+            >
+              <PhoneIcon className="h-3 w-3 text-emerald-400" />
+              <span>Management: <strong className="font-semibold text-white">{site.phones.management.display}</strong></span>
+            </a>
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 font-medium">
+              Open 24 hours — every day
+            </span>
+          </div>
         </div>
       </div>
 
@@ -115,13 +124,22 @@ export function Header() {
                   </li>
                 );
               })}
-              <li className="py-3">
+              <li className="pt-3 pb-1">
                 <a
                 href={telHref(site.phones.hotline.dial)}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-jr-red px-4 py-3 text-sm font-semibold text-white">
                 
                   <PhoneIcon className="h-4 w-4" aria-hidden="true" />
-                  Call {site.phones.hotline.display}
+                  Call {site.phones.hotline.display} (Appointments / ETU)
+                </a>
+              </li>
+              <li className="pb-3">
+                <a
+                  href={telHref(site.phones.management.dial)}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-jr-green/30 bg-jr-green-soft px-4 py-2.5 text-xs font-semibold text-jr-green-dark transition-colors hover:bg-jr-green hover:text-white"
+                >
+                  <PhoneIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                  Management Inquiries: {site.phones.management.display}
                 </a>
               </li>
             </ul>

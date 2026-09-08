@@ -74,6 +74,9 @@ export function Footer() {
                 <a className="hover:text-white" href={telHref(site.phones.alt.dial)}>
                   {site.phones.alt.display}
                 </a>
+                <a className="hover:text-white" href={telHref(site.phones.management.dial)}>
+                  {site.phones.management.display} <span className="text-white/60">(Management)</span>
+                </a>
               </span>
             </li>
             <li className="flex gap-3">
