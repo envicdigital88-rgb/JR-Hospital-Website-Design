@@ -302,15 +302,15 @@ export default function Home() {
 
             {/* Spotlight 2: Dental Clinic */}
             <AnimateIn variant="fade-up" delay={150}>
-              <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border-2 border-teal-600/30 bg-white p-7 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-teal-600 hover:shadow-xl sm:p-9">
-                <div className="absolute top-0 right-0 h-32 w-32 -translate-y-8 translate-x-8 rounded-full bg-teal-500/10 blur-2xl" />
+              <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border-2 border-jr-green/40 bg-white p-7 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-jr-green hover:shadow-xl sm:p-9">
+                <div className="absolute top-0 right-0 h-32 w-32 -translate-y-8 translate-x-8 rounded-full bg-emerald-500/10 blur-2xl" />
                 <div>
                   <div className="flex flex-wrap items-center justify-between gap-3">
-                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-teal-700 text-white shadow-md shadow-teal-700/20">
+                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-jr-green text-white shadow-md shadow-jr-green/20">
                       <SmileIcon className="h-6 w-6" aria-hidden="true" />
                     </span>
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-teal-200 bg-teal-50 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-teal-800">
-                      <SparklesIcon className="h-3.5 w-3.5 text-teal-600" />
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-emerald-800">
+                      <SparklesIcon className="h-3.5 w-3.5 text-jr-green" />
                       Comprehensive Oral Healthcare
                     </span>
                   </div>
@@ -324,15 +324,15 @@ export default function Home() {
 
                   <ul className="mt-6 space-y-2.5 text-sm text-jr-ink">
                     <li className="flex items-center gap-2.5">
-                      <CheckIcon className="h-4 w-4 shrink-0 text-teal-700" />
+                      <CheckIcon className="h-4 w-4 shrink-0 text-jr-green" />
                       <span>Routine dental checkups, ultrasonic scaling & teeth cleaning</span>
                     </li>
                     <li className="flex items-center gap-2.5">
-                      <CheckIcon className="h-4 w-4 shrink-0 text-teal-700" />
+                      <CheckIcon className="h-4 w-4 shrink-0 text-jr-green" />
                       <span>Composite tooth-coloured fillings, extractions & pain relief</span>
                     </li>
                     <li className="flex items-center gap-2.5">
-                      <CheckIcon className="h-4 w-4 shrink-0 text-teal-700" />
+                      <CheckIcon className="h-4 w-4 shrink-0 text-jr-green" />
                       <span>Root canal treatment, pediatric dental care & aesthetic dentistry</span>
                     </li>
                   </ul>
@@ -341,7 +341,7 @@ export default function Home() {
                 <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-jr-line/70 pt-6">
                   <a
                     href={telHref(site.phones.hotline.dial)}
-                    className="inline-flex items-center gap-2 rounded-xl bg-teal-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-teal-800"
+                    className="inline-flex items-center gap-2 rounded-xl bg-jr-green px-5 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-jr-green-dark"
                   >
                     <PhoneIcon className="h-4 w-4" />
                     <span>Inquire About Dental Times</span>

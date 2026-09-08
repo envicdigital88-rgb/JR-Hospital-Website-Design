@@ -50,7 +50,7 @@ export function Footer() {
             <li>24 Hour Laboratory</li>
             <li>Emergency Treatment Unit</li>
             <li className="font-semibold text-white/95 flex items-center gap-1.5">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-teal-400" />
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-jr-green-light" />
               Dental Clinic
             </li>
             <li>Ambulance Services</li>
