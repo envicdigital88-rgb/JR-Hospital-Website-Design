@@ -160,14 +160,15 @@ export default function About() {
               ordered during a consultation can usually be completed in the same visit. The
               Emergency Treatment Unit and ambulance service operate continuously alongside them.
             </p>
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {[
-                '24 Hour OPD',
+                '24/7 OPD (Outpatient)',
+                'Dental Clinic',
                 '24 Hour Pharmacy',
                 '24 Hour Laboratory',
                 'Emergency Treatment Unit',
                 'Digital X-Ray & Ultrasound',
                 '2D Echo',
+                'Consultant Eye Clinic',
               ].map((item) => (
                 <li
                   key={item}

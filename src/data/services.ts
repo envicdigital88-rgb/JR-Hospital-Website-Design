@@ -90,20 +90,42 @@ export const serviceCategories: ServiceCategory[] = [
 
 
 export const keyFacilities = [
-{
-  name: 'Emergency Treatment',
-  description: 'Immediate care, any hour of the day or night.',
-  icon: 'siren'
-},
-{ name: 'Digital X-Ray', description: 'Fast digital imaging with same-visit results.', icon: 'scan' },
-{ name: 'Ultrasound', description: 'General and obstetric scanning on site.', icon: 'waves' },
-{ name: 'Laboratory', description: 'Round-the-clock testing and reporting.', icon: 'flask' },
-{ name: 'Eye Clinic', description: 'Examinations and cataract surgery.', icon: 'eye' },
-{ name: 'Pharmacy', description: 'Prescribed medicines dispensed 24 hours.', icon: 'pill' }];
-
+  {
+    name: 'Emergency Treatment Unit',
+    description: 'Immediate medical stabilization, acute trauma care, and round-the-clock ambulance response.',
+    icon: 'siren'
+  },
+  {
+    name: 'Digital X-Ray',
+    description: 'Fast, high-clarity digital radiography with same-visit diagnostic reporting.',
+    icon: 'scan'
+  },
+  {
+    name: 'Ultrasound & 2D Echo',
+    description: 'General, obstetric, abdominal, and cardiac echocardiography scans on site.',
+    icon: 'waves'
+  },
+  {
+    name: '24-Hour Laboratory',
+    description: 'Round-the-clock blood, urine, pathology, and urgent clinical investigations.',
+    icon: 'flask'
+  },
+  {
+    name: 'Eye Clinic & Surgery',
+    description: 'Specialist eye examinations, vision testing, and cataract surgical care.',
+    icon: 'eye'
+  },
+  {
+    name: '24-Hour Pharmacy',
+    description: 'Full range of genuine prescribed medicines dispensed 24 hours every day.',
+    icon: 'pill'
+  }
+];
 
 export const roundTheClock = [
-{ title: '24-Hour OPD', detail: 'Walk in and see a doctor at any hour.' },
-{ title: '24-Hour Pharmacy', detail: 'Medicines dispensed on site, always open.' },
-{ title: '24-Hour Laboratory', detail: 'Urgent tests processed through the night.' },
-{ title: 'Emergency Care', detail: 'Emergency Treatment Unit and ambulance.' }];
+  { title: '24/7 OPD (Walk-in Care)', detail: 'Walk in anytime to see a doctor — open 24 hours every day.' },
+  { title: 'Modern Dental Clinic', detail: 'Comprehensive dental examinations, scaling, fillings & oral care.' },
+  { title: '24-Hour Pharmacy', detail: 'Medicines dispensed on site, always open 24/7.' },
+  { title: '24-Hour Laboratory', detail: 'Urgent and routine tests processed through the night.' },
+  { title: 'Emergency Care & Ambulance', detail: 'Immediate ETU stabilization and patient transport.' }
+];

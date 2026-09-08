@@ -39,13 +39,20 @@ export function Footer() {
 
         <div>
           <h2 className="text-sm font-semibold uppercase tracking-wider text-white">
-            24-Hour Services
+            24-Hour & Key Services
           </h2>
           <ul className="mt-4 space-y-2.5 text-sm text-white/75">
-            <li>24 Hour OPD</li>
+            <li className="font-semibold text-white flex items-center gap-1.5">
+              <span className="inline-block w-2 h-2 rounded-full bg-jr-green-light animate-pulse" />
+              24/7 OPD (Walk-in Care)
+            </li>
             <li>24 Hour Pharmacy</li>
             <li>24 Hour Laboratory</li>
             <li>Emergency Treatment Unit</li>
+            <li className="font-semibold text-white/95 flex items-center gap-1.5">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-teal-400" />
+              Dental Clinic
+            </li>
             <li>Ambulance Services</li>
           </ul>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRightIcon, CheckIcon, ClockIcon, PhoneIcon, StethoscopeIcon } from 'lucide-react';
+import { ArrowRightIcon, CheckIcon, ClockIcon, PhoneIcon, SmileIcon, SparklesIcon, StethoscopeIcon } from 'lucide-react';
 import { Icon } from '@/components/Icon';
 import { EmergencyBanner } from '@/components/EmergencyBanner';
 import { AnimateIn } from '@/components/AnimateIn';
@@ -227,7 +227,7 @@ export default function Home() {
           <AnimateIn variant="fade-up" className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div className="max-w-2xl">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-jr-red">
-                Key Facilities
+                Key Facilities & Primary Care
               </p>
               <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-jr-ink">
                 Everything a first visit usually needs, on one site
@@ -236,25 +236,142 @@ export default function Home() {
             <Link
               href="/services"
               className="inline-flex shrink-0 items-center gap-2 text-base font-semibold text-jr-green-dark hover:underline">
-              
               All 23 facilities
               <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
             </Link>
           </AnimateIn>
 
-          <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {keyFacilities.map((facility) =>
-            <li
-              key={facility.name}
-              className="flex h-full flex-col rounded-xl border border-jr-line bg-white p-7">
-              
+          {/* ── Spotlight Featured Cards: 24/7 OPD & Dental Clinic ── */}
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {/* Spotlight 1: 24/7 OPD */}
+            <AnimateIn variant="fade-up" delay={0}>
+              <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border-2 border-jr-green/40 bg-white p-7 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-jr-green hover:shadow-xl sm:p-9">
+                <div className="absolute top-0 right-0 h-32 w-32 -translate-y-8 translate-x-8 rounded-full bg-emerald-500/10 blur-2xl" />
+                <div>
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-jr-green text-white shadow-md shadow-jr-green/20">
+                      <ClockIcon className="h-6 w-6" aria-hidden="true" />
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-emerald-800">
+                      <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                      24/7 Walk-in Care — Always Open
+                    </span>
+                  </div>
+
+                  <h3 className="mt-6 font-display text-2xl font-bold text-jr-ink sm:text-3xl">
+                    24/7 Outpatient Department (OPD)
+                  </h3>
+                  <p className="mt-3 text-base leading-relaxed text-jr-muted">
+                    Immediate consultations with qualified medical doctors at any hour of the day or night. No prior appointment required — walk in whenever you need care.
+                  </p>
+
+                  <ul className="mt-6 space-y-2.5 text-sm text-jr-ink">
+                    <li className="flex items-center gap-2.5">
+                      <CheckIcon className="h-4 w-4 shrink-0 text-jr-green" />
+                      <span>Zero wait times — on-duty doctors available 24/7 every day</span>
+                    </li>
+                    <li className="flex items-center gap-2.5">
+                      <CheckIcon className="h-4 w-4 shrink-0 text-jr-green" />
+                      <span>Treatment for fever, infections, respiratory issues & acute illness</span>
+                    </li>
+                    <li className="flex items-center gap-2.5">
+                      <CheckIcon className="h-4 w-4 shrink-0 text-jr-green" />
+                      <span>Direct seamless link to 24-hr Pharmacy, Lab & Emergency Unit</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-jr-line/70 pt-6">
+                  <a
+                    href={telHref(site.phones.hotline.dial)}
+                    className="inline-flex items-center gap-2 rounded-xl bg-jr-green px-5 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-jr-green-dark"
+                  >
+                    <PhoneIcon className="h-4 w-4" />
+                    <span>Call OPD: {site.phones.hotline.display}</span>
+                  </a>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-jr-line bg-jr-cream/80 px-4 py-3 text-sm font-semibold text-jr-ink transition-colors hover:bg-jr-cream"
+                  >
+                    <span>Get Directions</span>
+                    <ArrowRightIcon className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </AnimateIn>
+
+            {/* Spotlight 2: Dental Clinic */}
+            <AnimateIn variant="fade-up" delay={150}>
+              <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border-2 border-teal-600/30 bg-white p-7 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-teal-600 hover:shadow-xl sm:p-9">
+                <div className="absolute top-0 right-0 h-32 w-32 -translate-y-8 translate-x-8 rounded-full bg-teal-500/10 blur-2xl" />
+                <div>
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-teal-700 text-white shadow-md shadow-teal-700/20">
+                      <SmileIcon className="h-6 w-6" aria-hidden="true" />
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-teal-200 bg-teal-50 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-teal-800">
+                      <SparklesIcon className="h-3.5 w-3.5 text-teal-600" />
+                      Comprehensive Oral Healthcare
+                    </span>
+                  </div>
+
+                  <h3 className="mt-6 font-display text-2xl font-bold text-jr-ink sm:text-3xl">
+                    Modern Dental Clinic
+                  </h3>
+                  <p className="mt-3 text-base leading-relaxed text-jr-muted">
+                    Gentle, professional dental examinations and modern dental treatments for patients of all ages, delivered by experienced dental practitioners.
+                  </p>
+
+                  <ul className="mt-6 space-y-2.5 text-sm text-jr-ink">
+                    <li className="flex items-center gap-2.5">
+                      <CheckIcon className="h-4 w-4 shrink-0 text-teal-700" />
+                      <span>Routine dental checkups, ultrasonic scaling & teeth cleaning</span>
+                    </li>
+                    <li className="flex items-center gap-2.5">
+                      <CheckIcon className="h-4 w-4 shrink-0 text-teal-700" />
+                      <span>Composite tooth-coloured fillings, extractions & pain relief</span>
+                    </li>
+                    <li className="flex items-center gap-2.5">
+                      <CheckIcon className="h-4 w-4 shrink-0 text-teal-700" />
+                      <span>Root canal treatment, pediatric dental care & aesthetic dentistry</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-jr-line/70 pt-6">
+                  <a
+                    href={telHref(site.phones.hotline.dial)}
+                    className="inline-flex items-center gap-2 rounded-xl bg-teal-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-teal-800"
+                  >
+                    <PhoneIcon className="h-4 w-4" />
+                    <span>Inquire About Dental Times</span>
+                  </a>
+                  <Link
+                    href="/doctors"
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-jr-line bg-jr-cream/80 px-4 py-3 text-sm font-semibold text-jr-ink transition-colors hover:bg-jr-cream"
+                  >
+                    <span>Meet Our Doctors</span>
+                    <ArrowRightIcon className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </AnimateIn>
+          </div>
+
+          {/* ── Remaining Facilities Grid ── */}
+          <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {keyFacilities.map((facility) => (
+              <li
+                key={facility.name}
+                className="flex h-full flex-col rounded-xl border border-jr-line bg-white p-7 shadow-sm transition-all duration-200 hover:border-jr-green/40 hover:shadow-md"
+              >
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-jr-green-soft text-jr-green">
                   <Icon name={facility.icon} className="h-5 w-5" />
                 </span>
                 <h3 className="mt-5 font-display text-xl font-bold text-jr-ink">{facility.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-jr-muted">{facility.description}</p>
               </li>
-            )}
+            ))}
           </ul>
         </div>
       </section>
