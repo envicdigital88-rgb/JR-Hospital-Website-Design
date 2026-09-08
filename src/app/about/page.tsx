@@ -160,6 +160,7 @@ export default function About() {
               ordered during a consultation can usually be completed in the same visit. The
               Emergency Treatment Unit and ambulance service operate continuously alongside them.
             </p>
+            <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-2">
               {[
                 '24/7 OPD (Outpatient)',
                 'Dental Clinic',
