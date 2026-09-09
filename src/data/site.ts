@@ -30,7 +30,7 @@ export const site = {
     management: { label: 'Management Inquiries', display: '+94 77 932 9939', dial: '+94779329939' }
   },
   whatsapp: '+94760228181',
-  email: 'ragamahospitals@gmail.com',
+  email: 'jrhospitals2018@gmail.com',
   hours: '24 Hours — Every day of the year',
   // Social links stay empty until the hospital confirms the official pages.
   social: {
